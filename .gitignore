@@ -1,0 +1,67 @@
+# =========================
+# Environment Variables
+# =========================
+.env
+*.env
+.env*
+
+# =========================
+# Python / Django
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.sqlite3
+
+# Database
+db.sqlite3
+
+# Uploaded Media
+media/
+
+# Collected Static Files
+staticfiles/
+
+# Logs
+logs/
+*.log
+
+# Virtual Environments
+venv/
+.venv/
+env/
+
+# =========================
+# React / Vite
+# =========================
+node_modules/
+dist/
+
+# Vite Cache
+.vite/
+.vite-temp/
+
+# =========================
+# Testing / Coverage
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =========================
+# IDEs
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Operating System Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Temporary Files
+# =========================
+*.tmp
+*.bak

@@ -1,0 +1,169 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Afacad:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* color palette */
+  --first-color: white;
+  --second-color: black;
+  --third-color: #FDC435;
+  --fourth-color: #F9FAFF;
+  --fifth-color: #7090B0;
+  --sixth-color: #9C4AFF;
+
+  /* font color */
+  --text-color: var(--second-color);
+  --text-color-2: var(--first-color);
+  --text-color-3: var(--fifth-color);
+
+  /* font family */
+  --font-family: 'Afacad', sans-serif;
+  --font-family-2: 'Playfair Display', serif;
+  --font-family-3: 'Inter', sans-serif;
+
+  /* shadow */
+  --shadow: 0 6px 64px rgba(112, 144, 176, 0.1);
+
+  /* border */
+  --border-color-1: var(--second-color);
+
+
+  /* font size */
+  --font-1: 5.9rem;
+  --font-2: 3.6rem;
+  --font-3: 3rem;
+  --font-4: 2.1rem;
+  --font-5: 1.8rem;
+  --font-6: 1.6rem;
+  --font-7: 1.5rem;
+  --font-8: 1.4rem;
+
+ 
+  /* font weight */
+  --weight-700: 700;
+  --weight-600: 600;
+  --weight-500: 500;
+  --weight-400: 400;
+}
+
+@media(max-width: 600px) {
+  :root{
+    --font-1: 4.5rem;
+    --font-2: 3rem;
+    --font-3: 2.3rem;
+    --font-4: 1.8rem;
+    --font-5: 1.7rem;
+    --font-6: 1.6rem;
+    --font-7: 1.5rem;
+    --font-8: 1.4rem;
+  }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  border: none;
+  text-decoration: none;
+  font-family: var(--font-family);
+}
+
+
+html {
+  font-size: 62.5%;
+}
+
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+
+@media (max-width: 600px) {
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+/* buttons */
+button {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+/* common layout css */
+.layout-wrapper {
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.layout {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.title {
+  font-size: var(--font-2);
+  font-weight: var(--weight-700);
+  color: var(--text-color);
+  font-family: var(--font-family-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.underline {
+    position: relative;
+}
+
+.underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem; /* adjust if needed */
+    width: 100%;
+    height: 2px;
+    background-color: var(--second-color); /* or any color */
+}
+
+
+.underline2 {
+    position: relative;
+}
+
+.underline2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -0.9rem; /* adjust if needed */
+    width: 70%;
+    height: 3px;
+    background-color: var(--third-color); /* or any color */
+}
