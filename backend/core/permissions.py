@@ -11,10 +11,6 @@ class IsAdminOrReadOnly(BasePermission):
     
 
 class ContactCreateOnly(BasePermission):
-    """
-    Allow anyone to create contact messages,
-    but block all other actions (list, retrieve, update, delete).
-    """
 
     def has_permission(self, request, view):
         # Only allow POST requests

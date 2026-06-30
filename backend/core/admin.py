@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SiteSettings, PageView, VisitorLog
+from .models import SiteSettings, PageView, VisitorLog, Footer
 
 
 @admin.register(SiteSettings)
@@ -21,3 +21,9 @@ class VisitorLogAdmin(admin.ModelAdmin):
     search_fields = ("page", "ip_address")
     list_filter = ("page", "visited_at")
     ordering = ("-visited_at",)
+
+
+@admin.register(Footer)
+class FooterAdmin(admin.ModelAdmin):    
+    list_display = ("footer_email", "footer_phone")
+    search_fields = ("footer_email", "footer_phone")

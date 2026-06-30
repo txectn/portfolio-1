@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth import authenticate
 
-from .models import SiteSettings, PageView, VisitorLog
+from .models import SiteSettings, Footer, PageView, VisitorLog
 
 class PortfolioLoginSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
@@ -51,10 +51,21 @@ class SiteSettingsSerializer(serializers.ModelSerializer):
         model = SiteSettings
         fields = [
             "site_name",
-            "logo",
+            "logo_light",
+            "logo_dark",
             "favicon"
         ]
 
+class FooterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Footer
+        fields = [
+            "footer_image",
+            "footer_email",
+            "footer_phone",
+            "footer_rights",
+            "footer_links"
+        ]
 
 
 class PageViewSerializer(serializers.ModelSerializer):

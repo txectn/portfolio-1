@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { api } from "./api";
+import { useLoader } from "../components/loader/loaderProvider";
 
 export const useGet = ({
     path,
@@ -8,15 +9,21 @@ export const useGet = ({
     setError,
     isAuth = false,
 }) => {
+    const { startLoading, finishLoading } = useLoader();
+
     useEffect(() => {
         if (!path) return;
 
         let isMounted = true;
 
         const fetchData = async () => {
-            try {
-                setLoading?.(true);
+            // Global loader
+            startLoading();
 
+            // Local loader
+            setLoading?.(true);
+
+            try {
                 const response = await api.get(path, { isAuth });
 
                 if (isMounted) {
@@ -33,6 +40,10 @@ export const useGet = ({
                     );
                 }
             } finally {
+                // Always notify the global loader
+                finishLoading();
+
+                // Only update local state if still mounted
                 if (isMounted) {
                     setLoading?.(false);
                 }
@@ -46,6 +57,9 @@ export const useGet = ({
         };
     }, [path, isAuth]);
 };
+
+
+
 
 const handleError = (error, setResponse) => {
     const errorData = {

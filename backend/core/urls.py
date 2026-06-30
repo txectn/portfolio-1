@@ -6,6 +6,7 @@ from .views import (
     SiteSettingsViewSet,
     PageViewViewSet,
     VisitorLogViewSet,
+    FooterViewSet
 )
 
 
@@ -27,6 +28,12 @@ router.register(
     r"visitor-logs",
     VisitorLogViewSet,
     basename="visitor-log"
+)
+
+router.register(
+    r"footer",
+    FooterViewSet,
+    basename="footer"
 )
 
 urlpatterns = [

@@ -11,11 +11,33 @@
   --fourth-color: #F9FAFF;
   --fifth-color: #7090B0;
   --sixth-color: #9C4AFF;
+  --sevent-color: rgb(235, 235, 235);
+  --eight-color: #e1e1e1;
+  --nineth-color: #ffffff;
+  /* --nineth-color: #f5f4f4; */
+  --tenth-color: #797c7f;
+
+  /* loader color */
+  --loader-bg: #ffffff;
+  --loader-ring-1: #2563eb;
+  --loader-ring-2: #0891b2;
+  --loader-ring-3: #7c3aed;
+  --loader-ring-4: #1e293b;
+  --loader-dot: #0284c7;
+  --loader-center: #2563eb;
+  --loader-glow: rgba(37, 99, 235, .15);
+
+
+  /* image filter */
+  --filter: none;
 
   /* font color */
   --text-color: var(--second-color);
   --text-color-2: var(--first-color);
   --text-color-3: var(--fifth-color);
+
+  /* background color */
+  --bg-color: var(--first-color);
 
   /* font family */
   --font-family: 'Afacad', sans-serif;
@@ -23,23 +45,29 @@
   --font-family-3: 'Inter', sans-serif;
 
   /* shadow */
-  --shadow: 0 6px 64px rgba(112, 144, 176, 0.1);
+  --shadow-color: rgba(112, 144, 176, 0.1); 
+  --shadow: 0 6px 64px rgba(112, 144, 176, 0.2);
 
   /* border */
   --border-color-1: var(--second-color);
+  --border-color-2: var(--eight-color);
 
+  /* overlay */
+  --overlay: rgba(0, 0, 0, 0.5);
 
   /* font size */
-  --font-1: 5.9rem;
-  --font-2: 3.6rem;
-  --font-3: 3rem;
-  --font-4: 2.1rem;
-  --font-5: 1.8rem;
-  --font-6: 1.6rem;
-  --font-7: 1.5rem;
-  --font-8: 1.4rem;
+  --font1-large: 5.9rem;
+  --font1-large2: 4rem;
+  --font1-large-mid: 3rem;
+  --font1-mid: 2.1rem;
+  --font1-mid-small: 1.9rem;
+  --font1-small: 1.8rem;
+  --font1-small-smaller: 1.6rem;
+  --font1-smaller: 1.4rem;
 
- 
+  --font-normal: 1.5rem;
+  --font2-large: 3.6rem;
+
   /* font weight */
   --weight-700: 700;
   --weight-600: 600;
@@ -47,19 +75,33 @@
   --weight-400: 400;
 }
 
-@media(max-width: 600px) {
-  :root{
-    --font-1: 4.5rem;
-    --font-2: 3rem;
-    --font-3: 2.3rem;
-    --font-4: 1.8rem;
-    --font-5: 1.7rem;
-    --font-6: 1.6rem;
-    --font-7: 1.5rem;
-    --font-8: 1.4rem;
-  }
-}
+[data-theme="dark"] {
+  --first-color: #121212;
+  --second-color: #F5F5F5;
+  --third-color: #FDC435;
+  --fourth-color: #1E1E1E;
+  --fifth-color: #9CB7D4;
+  --sixth-color: #B47DFF;
+  --sevent-color: rgb(40, 40, 40);
+  --eight-color: #383838;
+  --nineth-color: #282223;
 
+  --loader-bg: #0f172a;
+  --loader-ring-1: #3b82f6;
+  --loader-ring-2: #06b6d4;
+  --sixth-color: #9C4AFF;
+  --loader-ring-4: #ffffff;
+  --loader-dot: #38bdf8;
+  --loader-center: #ffffff;
+  --loader-glow: rgba(59, 130, 246, .35);
+
+  --shadow-color: rgba(97, 95, 95, 0.1);
+  --shadow: 0 6px 64px rgba(143, 111, 79, 0.1);
+
+  --overlay: rgba(37, 36, 36, 0.5);
+
+  --filter: invert(1);
+}
 
 * {
   margin: 0;
@@ -116,7 +158,7 @@ button {
 
 .layout {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1275px;
   margin: 0 auto;
 }
 
@@ -128,7 +170,7 @@ button {
 }
 
 .title {
-  font-size: var(--font-2);
+  font-size: var(--font2-large);
   font-weight: var(--weight-700);
   color: var(--text-color);
   font-family: var(--font-family-2);
@@ -139,31 +181,51 @@ button {
 
 
 .underline {
-    position: relative;
+  position: relative;
 }
 
 .underline::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -0.5rem; /* adjust if needed */
-    width: 100%;
-    height: 2px;
-    background-color: var(--second-color); /* or any color */
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  /* adjust if needed */
+  width: 100%;
+  height: 2px;
+  background-color: var(--second-color);
+  /* or any color */
 }
 
 
 .underline2 {
-    position: relative;
+  position: relative;
 }
 
 .underline2::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -0.9rem; /* adjust if needed */
-    width: 70%;
-    height: 3px;
-    background-color: var(--third-color); /* or any color */
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -0.9rem;
+  /* adjust if needed */
+  width: 70%;
+  height: 3px;
+  background-color: var(--third-color);
+  /* or any color */
+}
+
+.scale {
+  transition: scale 0.3s ease;
+}
+
+@media(pointer: fine) {
+  .scale:hover {
+    scale: 1.15;
+  }
+}
+
+@media(pointer: coarse) {
+  .scale:active {
+    scale: 1.15;
+  }
 }

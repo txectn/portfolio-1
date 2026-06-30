@@ -1,0 +1,146 @@
+/* Sidebar */
+.container{
+  display: inline-flex;
+  align-items: center;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translateX(101%);
+  width: 43rem;
+  height: 100dvh;
+  background-color: var(--bg-color);
+  z-index: 1001;
+  transition: transform 0.35s ease;
+}
+
+@media(max-width: 600px) {
+  .sidebar {
+    width: 35rem;
+  }
+}
+
+@media(max-width: 450px) {
+  .sidebar {
+    width: 33rem;
+  }
+}
+
+@media(max-width: 400px) {
+  .sidebar {
+    width: 30rem;
+  }
+}
+
+
+@media(max-width: 350px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(101%);
+  background-color: var(--overlay);
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+}
+
+.sidebar-overlay.open {
+  transform: translateX(0);
+}
+
+.sidebar-open-btn {
+  font-size: var(--font-normal);
+  color: var(--text-color);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sidebar-open-btn svg {
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+@media(pointer: fine) {
+  .sidebar-open-btn:hover svg {
+    transform: scale(1.15);
+  }
+}
+@media(pointer: coarse) {
+  .sidebar-open-btn:active svg {
+    transform: scale(1.15);
+  }
+}
+.sidebar-btn-hover{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4.3rem;
+  height: 4.3rem;
+  z-index: 1;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.sidebar-header {
+  position: sticky;
+  top: 0;
+  right: auto;
+  left: 0;
+  width: 100%;
+  height: 6.5rem;
+  padding: 1rem 1.7rem;
+  border-bottom: 1px solid var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-color);
+  z-index: 3;
+}
+
+.sidebar-header-title {
+  font-size: var(--font1-mid);
+  font-weight: 500;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.sidebar-close-btn {
+  font-size: var(--font1-mid);
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  position: relative;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+
+@media(pointer: fine) {
+  .sidebar-close-btn:hover {
+    transform: scale(1.15);
+  }
+}
+
+@media(pointer: coarse) {
+  .sidebar-close-btn:active {
+    transform: scale(1.15);
+  }
+}

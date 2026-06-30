@@ -1,13 +1,14 @@
-import { useLogo } from "../../components/useSiteSettings";
+import Services from "./services/services";
+import Hero from "./hero/hero";
+import Project from "./project/project";
 
 function Home() {
-    const logoData = useLogo();
     return (
-        <div>
-            <h1>Home</h1>
-            {JSON.stringify(logoData)}
-            <img src={logoData?.logo} />
-        </div>
+        <>
+            <Hero />
+            <Project />
+            <Services />
+        </>
     );
 }
 

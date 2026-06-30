@@ -15,5 +15,5 @@ router.register(r"services", ServiceViewSet)
 router.register(r"about", AboutViewSet)
 
 urlpatterns = [
-    path("api/", include(router.urls)),
+    path("", include(router.urls)),
 ]
